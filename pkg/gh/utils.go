@@ -14,7 +14,7 @@ func parseGitHubURL(url string) (*repository, error) {
 
 	arr := strings.Split(u, "/")
 
-	if len(arr) != 3 {
+	if len(arr) < 3 {
 		return nil, fmt.Errorf("invalid github url")
 	}
 
