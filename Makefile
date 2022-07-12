@@ -38,4 +38,4 @@ docker-build:
 	DOCKER_BUILDKIT=1 docker build -t $(CONTAINER_IMAGE) .
 
 docker-run:
-	docker run --rm -v $(pwd):/ $(CONTAINER_IMAGE)
+	docker run --rm -v $(shell pwd):/workdir $(CONTAINER_IMAGE) /spelunker go

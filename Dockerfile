@@ -18,6 +18,8 @@ RUN --mount=type=cache,target=/root/.cache/go-build \
 
 FROM gcr.io/distroless/base-debian11
 
-COPY --from=builder /go/src/github.com/guni1192/spelunker/bin/* /
+COPY --from=builder --chown=nonroot:nonroot /go/src/github.com/guni1192/spelunker/bin/* /
+WORKDIR /workdir
+USER nonroot
 
 CMD ["/spelunker"]
